@@ -19,8 +19,11 @@
 import os
 import cv2
 import numpy as np
-import tensorflow.compat.v1 as tf
-tf.disable_v2_behavior()
+import tensorflow as tf
+if tf.__version__[0] == '2':
+    logging.debug("Tensorflow version 2.X detected, enabling compatibility with version 1.X.")
+    import tensorflow.compat.v1 as tf
+    tf.disable_v2_behavior()
 import sys
 
 
